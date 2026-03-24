@@ -315,7 +315,7 @@ class ObjectDetector(PluginNode):
                         )
                     except Exception as e:
                         self.get_logger().error(
-                            "An error occured, when trying to publish the frames", e
+                            f"An error occured, when trying to publish the frames {e}"
                         )
                 else:
                     self.get_logger().debug(
