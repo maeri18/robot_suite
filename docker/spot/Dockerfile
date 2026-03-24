@@ -15,6 +15,7 @@ RUN apt update && \
     ros-$ROS_DISTRO-image-transport ros-$ROS_DISTRO-ament-cmake-mypy \
     ros-$ROS_DISTRO-rosbridge-suite ros-$ROS_DISTRO-cv-bridge\ 
     ros-$ROS_DISTRO-teleop-twist-keyboard ros-$ROS_DISTRO-bondcpp \
+    ros-$ROS_DISTRO-realsense2-* ros-$ROS_DISTRO-librealsense2* \
     alsa-base alsa-utils portaudio19-dev  &&\
     rm -rf /var/lib/apt/lists/*
 
