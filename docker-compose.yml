@@ -30,6 +30,7 @@ services:
         devices:
             - /dev/snd:/dev/snd
         network_mode: "host"
+        ipc: "host"
         tty: true
         stdin_open: true
         command: "ros2 launch robot_bringup spot_launch.py"
