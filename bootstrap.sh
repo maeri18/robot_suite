@@ -275,7 +275,6 @@ function install_spot_driver_jazzy() {
     build_spot_cpp_sdk
 
     cd "$current_dir"
-    print_info "Installing spot driver ahhhhh"
     # installing bosdyn_msgs and fetch the last version of proto2ros for jazzy support. this won't be necessary once bosdyn_msgs is updated to support jazzy.
     git clone --recurse-submodules https://github.com/bdaiinstitute/bosdyn_msgs.git
     git -C bosdyn_msgs checkout 209454f # need this version to be compatible with spot-cpp-sdk 5.0.1, while waiting for jazzy support in the official repo
