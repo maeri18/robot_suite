@@ -27,6 +27,23 @@ def create_spot_driver_launch(ld: LaunchDescription, pkg_dir: str) -> None:
         )
     )
 
+def create_realsense_camera_launch(ld: LaunchDescription) -> None:
+    pkg_dir = get_package_share_directory("robot_bringup")
+    params_file = os.path.join(pkg_dir, "config", "spot_params.yaml")
+    realsense_camera_pkg_dir = get_package_share_directory("realsense2_camera")
+    ld.add_action(
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(
+                os.path.join(
+                    realsense_camera_pkg_dir, "launch/rs_launch.py"
+                )
+            ),
+            launch_arguments={
+                "params_file": params_file,
+            }.items(),
+        )
+    )
+
 
 def create_robot_bt_launch(ld: LaunchDescription) -> None:
     robot_bt_pkg_dir = get_package_share_directory("robot_bt")
@@ -143,8 +160,10 @@ def generate_launch_description():
 
     pkg_dir = get_package_share_directory("robot_bringup")
 
-    create_spot_driver_launch(ld, pkg_dir)
-    # create_robot_bt_launch(ld)
+    #create_spot_driver_launch(ld, pkg_dir)
+    create_realsense_camera_launch(ld)
+    create_robot_bt_launch(ld)
+    
     # create_rosbridge_server_launch(ld)
     # create_video_interface_launch(ld)
 
@@ -152,8 +171,8 @@ def generate_launch_description():
     # -    Plugins     -
     # ------------------
 
-    # create_hand_tracker_plugin_launch(ld)
+    create_hand_tracker_plugin_launch(ld)
+    create_person_tracking_plugin_launch(ld)
     # create_robot_agent_plugin_launch(ld)
-    # create_person_tracking_plugin_launch(ld)
-
+    
     return ld
