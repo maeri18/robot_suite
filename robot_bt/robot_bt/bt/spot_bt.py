@@ -221,12 +221,10 @@ class SpotBT(py_trees.composites.Sequence):
             ],
         )
 
-        self.add_children([robot_connection, battery_checker, remote_operator, plugins])
+        #self.add_children([robot_connection, battery_checker, remote_operator, plugins])
+        self.add_children([battery_checker, remote_operator, plugins])
 
-        # test
-        # self.add_children([robot_connection, remote_operator, plugins])
-        # self.add_children([remote_operator, plugins])
-        # end test
+        
 
 
 def bootstrap(ros_node: Node) -> py_trees.behaviour.Behaviour:
