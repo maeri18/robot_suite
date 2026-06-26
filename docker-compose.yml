@@ -27,8 +27,12 @@ services:
             #- RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
         volumes:
             - /tmp/.X11-unix:/tmp/.X11-unix
+            - /dev/bus/usb:/dev/bus/usb
         devices:
             - /dev/snd:/dev/snd
+            - /dev/video0:/dev/video0
+            - /dev/video1:/dev/video1
+            - /dev/video2:/dev/video2
         network_mode: "host"
         ipc: "host"
         tty: true
